@@ -1,0 +1,60 @@
+{
+    "cmake.configureOnOpen": true,
+    "window.enableMenuBarMnemonics": false,
+    "window.customMenuBarAltFocus": false,
+    "window.titleBarStyle": "custom",
+    "window.menuBarVisibility": "visible",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.startupEditor": "none",
+    "task.problemMatchers.neverPrompt": {
+        "shell": true
+    },
+    "debug.onTaskErrors": "abort",
+    "update.showReleaseNotes": false,
+    "vscode-office.markdownType": "hyperMD",
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO"
+    ],
+    "todo-tree.regex.regex": "($TAGS) *(\\([^\\)]*\\))? *:",
+    "todo-tree.highlights.defaultHighlight": {
+        "type": "line",
+        "foreground": "blue",
+        "fontWeight": "bold",
+    },
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "update.mode": "none",
+    "C/C++ Include Guard.Macro Type": "Filepath",
+    "cSpell.userWords": [
+        "avtp",
+        "csrcs",
+        "interruptible",
+        "irqsave",
+        "printk",
+        "rtcp",
+        "ssrc"
+    ],
+    "files.exclude": {
+        "**/.history/**": true,
+        "**/*.dwo": true,
+        "**/*.o": true,
+        "**/*.o.cmd": true,
+        "**/*.o.d": true
+    },
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "git.confirmSync": false,
+    "editor.rulers": [
+        80, 120
+    ],
+    "window.zoomLevel": 1,
+    "editor.detectIndentation": false,
+}
