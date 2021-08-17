@@ -1,0 +1,65 @@
+theme = "plain"
+icons = "awesome"
+
+[[block]]
+block = "networkmanager"
+device_format = "{icon}{name}{ap}"
+ap_format = "({ssid}/{strength})"
+
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+format= "{icon} {percentage}" 
+info_type = "used"
+unit = "GB"
+interval = 20
+warning = 85.0
+alert = 95.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_total_used_percents}" 
+on_click = "xterm -e htop"
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+on_click = "xterm -e htop"
+
+[[block]]
+block = "cpu"
+interval = 1
+on_click = "xterm -e htop"
+
+[[block]]
+block = "temperature"
+collapsed = false
+interval = 2
+warning = 90 
+info = 80
+good = 50
+on_click = "xterm -e watch -n 2 sensors"
+inputs = ["Tdie"]
+format = "{max}"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+on_click = "pavucontrol -t 3"
+show_volume_when_muted = false
+name = "alsa_output.usb-Yamaha_Corporation_Steinberg_UR22mkII-00.analog-stereo"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d.%m %R"
+
+#[[block]]
+#block = "weather"
+#format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+#service = { name = "openweathermap", api_key = "16262e346e27366e2a56e9eaae4f424b", city_id = "2928615", units = "metric" }
+
