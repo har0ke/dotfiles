@@ -1,3 +1,4 @@
+xterm*saveLines: 10000000
 xterm*background: black
 xterm*foreground: white
 xterm*faceSize: 12

@@ -31,12 +31,20 @@
     "C/C++ Include Guard.Macro Type": "Filepath",
     "cSpell.userWords": [
         "avtp",
+        "clkd",
         "csrcs",
+        "ieciidc",
+        "iidc",
         "interruptible",
         "irqsave",
+        "mediats",
+        "mtap",
         "printk",
         "rtcp",
-        "ssrc"
+        "ssrc",
+        "stap",
+        "tclient",
+        "tscode"
     ],
     "files.exclude": {
         "**/.history/**": true,
@@ -47,7 +55,7 @@
     },
     "workbench.editorAssociations": [
         {
-            "viewType": "jupyter.notebook.ipynb",
+            "viewType": "jupyter-notebook",
             "filenamePattern": "*.ipynb"
         }
     ],
@@ -56,5 +64,6 @@
         80, 120
     ],
     "window.zoomLevel": 1,
-    "editor.detectIndentation": false,
+    "C_Cpp.loggingLevel": "Information",
+    "editor.tabSize": 8,
 }

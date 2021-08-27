@@ -30,5 +30,27 @@ link_with_bkp() {
     ln -s $SRC $DEST
 }
 
-link_with_bkp $SCRIPT_DIR/vscode/keybindings.json ~/.config/Code/User
-link_with_bkp $SCRIPT_DIR/vscode/settings.json ~/.config/Code/User
+files="\
+    .config/i3/config \
+    .config/i3status-rust/config.toml \
+    .config/i3status-rust/togglemute.sh \
+    .config/i3status-rust/volumectl.sh \
+    .config/Code/User/settings.json \
+    .config/Code/User/keybindings.json \
+    .Xmodmap \
+    .Xresources \
+    .xinitrc \
+    etc/modprobe.d/nobeep.conf:/"
+
+
+for f in $files; do
+    BASE="$HOME/"
+    if [[ "$f" =~ ":" ]]; then 
+        BASE=$(echo "$f" | cut -f2 -d:)
+        f=$(echo "$f" | cut -f1 -d:)
+    fi
+    dir="$BASE$(dirname $f)"
+    mkdir -p "$dir"
+    link_with_bkp $SCRIPT_DIR/$f $BASE$f
+done
+
