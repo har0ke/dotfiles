@@ -1,10 +1,15 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+run_as_user() {
+    echo "Run with user $1: ${@:2}"
+    sudo -u $@
+}
+set -e 
 link_with_bkp() {
-    SRC=$1
-    DEST=$2
-
+    SRC=$2
+    DEST=$3
+    USER=$1
     if [ -d $DEST ]; then
         DEST=$DEST/$(basename $SRC)
     fi
@@ -14,7 +19,7 @@ link_with_bkp() {
         return -1;
     fi
 
-    if [ -f $DEST ]; then
+    if [ -e $DEST ] || [ -L $DEST ]; then
         if [ "$SRC" -ef "$(readlink $DEST)" ]; then
             echo "$DEST is correctly linked"
             return
@@ -23,12 +28,25 @@ link_with_bkp() {
             echo "$DEST.old exists. Cannot create backup."
             return -1;
         fi
-        mv $DEST $DEST.old
-    else
-        echo "$DEST does not exist."
+	echo "$DEST will be moved to $DEST.old"
+        run_as_user $USER mv $DEST $DEST.old
     fi
-    ln -s $SRC $DEST
+    echo "$DEST will now be linked."
+    run_as_user $USER ln -s $SRC $DEST
 }
+
+ryzen=""
+
+xps15=""
+
+specific_files=""
+
+cpu_name="$(lscpu | grep "Model name" | cut -f2 -d: | xargs)"
+
+if [ "$cpu_name" == "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz" ]; then
+    echo "It's my XPS15"
+    specific_files=$xps15
+fi	
 
 files="\
     .config/i3/config \
@@ -40,17 +58,22 @@ files="\
     .Xmodmap \
     .Xresources \
     .xinitrc \
-    etc/modprobe.d/nobeep.conf:/"
+    etc/modprobe.d/nobeep.conf:/:root \
+    usr/share/X11/xorg.conf.d/40-libinput.conf:/:root"
 
 
 for f in $files; do
     BASE="$HOME/"
+    USER=$(whoami)
     if [[ "$f" =~ ":" ]]; then 
         BASE=$(echo "$f" | cut -f2 -d:)
+        USER=$(echo "$f" | cut -f3 -d:)
         f=$(echo "$f" | cut -f1 -d:)
     fi
     dir="$BASE$(dirname $f)"
-    mkdir -p "$dir"
-    link_with_bkp $SCRIPT_DIR/$f $BASE$f
+    if [ ! -d $dir ]; then
+    	run_as_user $USER mkdir -p "$dir"
+    fi
+    link_with_bkp $USER $SCRIPT_DIR/$f $BASE$f
 done
 
