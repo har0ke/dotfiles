@@ -4,6 +4,7 @@
 ## Dependencies
 
 For i3
+- xorg-xbacklight
 - wmctrl
 - network-manager-applet
 - xterm
