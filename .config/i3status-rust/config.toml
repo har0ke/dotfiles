@@ -51,7 +51,7 @@ block = "sound"
 driver = "pulseaudio"
 on_click = "pavucontrol -t 3"
 show_volume_when_muted = false
-name = "alsa_output.usb-Yamaha_Corporation_Steinberg_UR22mkII-00.analog-stereo"
+#name = "alsa_output.usb-Yamaha_Corporation_Steinberg_UR22mkII-00.analog-stereo"
 
 [[block]]
 block = "time"
