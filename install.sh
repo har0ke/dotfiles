@@ -59,6 +59,7 @@ files="\
     .Xresources \
     .xinitrc \
     .mod_keys.sh \
+    .clear_red.sh \
     etc/modprobe.d/nobeep.conf:/:root \
     usr/share/X11/xorg.conf.d/40-libinput.conf:/:root"
 

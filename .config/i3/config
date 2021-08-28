@@ -15,6 +15,7 @@ set $mod Mod3
 
 exec_always --no-startup-id "bash /home/oke/.mod_keys.sh"
 
+exec --no-startup-id bash ~/.clear_red.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -148,7 +149,6 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec subl'
 exec --no-startup-id i3-msg 'workspace $ws1; exec $terminal'
 exec --no-startup-id chromium http://192.168.0.2:8080/index
 exec --no-startup-id firefox
-exec --no-startup-id bash ~/clear.sh
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1

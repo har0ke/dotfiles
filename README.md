@@ -4,6 +4,7 @@
 ## Dependencies
 
 For i3
+- wmctrl
 - network-manager-applet
 - xterm
 - dmenu
