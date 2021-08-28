@@ -1,0 +1,5 @@
+#!bash
+
+setxkbmap -layout de -option caps:hyper
+xmodmap ~/.Xmodmap
+

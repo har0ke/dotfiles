@@ -13,8 +13,7 @@ set $terminal xterm
 set $mod Mod3
 
 
-exec "setxkbmap -layout de -option caps:hyper"
-exec "xmodmap ~/.Xmodmap"
+exec_always --no-startup-id "bash /home/oke/.mod_keys.sh"
 
 
 # Font for window titles. Will also be used by the bar unless a different font
