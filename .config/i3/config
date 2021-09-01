@@ -16,6 +16,9 @@ set $mod Mod3
 exec_always --no-startup-id "bash /home/oke/.mod_keys.sh"
 
 exec --no-startup-id bash ~/.clear_red.sh
+exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 30 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'
+exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'i3lock -c111111 -e' ''
+exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 1200 'systemctl suspend' ''  
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -38,19 +41,18 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3status-rust/volumectl.sh +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3status-rust/volumectl.sh -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id ~/.config/i3status-rust/togglemute.sh && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3status-rust/volumectl.sh +10% && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3status-rust/volumectl.sh -10% && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id ~/.config/i3status-rust/togglemute.sh && $refresh_i3status
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

@@ -43,7 +43,7 @@ warning = 90
 info = 80
 good = 50
 on_click = "xterm -e watch -n 2 sensors"
-inputs = ["Tdie"]
+inputs = ["Package id 0"]
 format = "{max}"
 
 [[block]]
@@ -58,6 +58,8 @@ block = "time"
 interval = 60
 format = "%a %d.%m %R"
 
+[[block]]
+block = "battery"
 #[[block]]
 #block = "weather"
 #format = "{weather} ({location}) {temp}, {wind} m/s {direction}"

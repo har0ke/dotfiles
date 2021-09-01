@@ -51,8 +51,6 @@ fi
 files="\
     .config/i3/config \
     .config/i3status-rust/config.toml \
-    .config/i3status-rust/togglemute.sh \
-    .config/i3status-rust/volumectl.sh \
     .config/Code/User/settings.json \
     .config/Code/User/keybindings.json \
     .Xmodmap \
@@ -61,6 +59,9 @@ files="\
     .mod_keys.sh \
     .clear_red.sh \
     etc/modprobe.d/nobeep.conf:/:root \
+    etc/acpi/handler.sh:/:root \
+    etc/acpi/toggle_mute.sh:/:root \
+    etc/acpi/volume.sh:/:root \
     usr/share/X11/xorg.conf.d/40-libinput.conf:/:root"
 
 

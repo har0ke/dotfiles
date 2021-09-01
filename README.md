@@ -12,4 +12,6 @@ For i3
 - i3status-rust
 - ttf-font-awesome
 - pauvcontrol
-
+- playerctl
+- acpid
+- xidlehook
