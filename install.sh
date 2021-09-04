@@ -48,7 +48,11 @@ if [ "$cpu_name" == "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz" ]; then
     specific_files=$xps15
 fi	
 
-files="\
+terminal_only="\
+    .oh-my-zsh/themes/oke.zsh-theme \
+    .zshrc"
+
+workstation="\
     .config/i3/config \
     .config/i3status-rust/config.toml \
     .config/Code/User/settings.json \
@@ -64,6 +68,25 @@ files="\
     etc/acpi/volume.sh:/:root \
     usr/share/X11/xorg.conf.d/40-libinput.conf:/:root"
 
+mode="all"
+
+if [[ $# -gt 0 ]]; then
+   mode="$@"
+fi
+
+if [[ "$mode" =~ "all" ]]; then
+   mode="workstation terminal"
+fi
+
+files=""
+
+if [[ $mode =~ "terminal" ]]; then
+   files="$files $terminal_only"
+fi
+
+if [[ $mode =~ "workstation" ]]; then
+   files="$files $workstation"
+fi
 
 for f in $files; do
     BASE="$HOME/"
