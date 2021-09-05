@@ -5,7 +5,7 @@ run_as_user() {
     echo "Run with user $1: ${@:2}"
     sudo -u $@
 }
-set -e 
+set -e
 link_with_bkp() {
     SRC=$2
     DEST=$3
@@ -46,11 +46,13 @@ cpu_name="$(lscpu | grep "Model name" | cut -f2 -d: | xargs)"
 if [ "$cpu_name" == "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz" ]; then
     echo "It's my XPS15"
     specific_files=$xps15
-fi	
+fi
 
 terminal_only="\
     .oh-my-zsh/themes/oke.zsh-theme \
-    .zshrc"
+    .zshrc \
+    .vimrc
+    .winfo.sh"
 
 workstation="\
     .config/i3/config \
@@ -91,7 +93,7 @@ fi
 for f in $files; do
     BASE="$HOME/"
     USER=$(whoami)
-    if [[ "$f" =~ ":" ]]; then 
+    if [[ "$f" =~ ":" ]]; then
         BASE=$(echo "$f" | cut -f2 -d:)
         USER=$(echo "$f" | cut -f3 -d:)
         f=$(echo "$f" | cut -f1 -d:)

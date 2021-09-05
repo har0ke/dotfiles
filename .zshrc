@@ -100,4 +100,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias create_venv3="python3 -m venv --system-site-packages .venv; source .venv/bin/activate; pip install -I -r requirements.txt"
+
+alias winfo=$HOME/.winfo.sh
