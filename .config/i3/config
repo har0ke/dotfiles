@@ -17,8 +17,8 @@ exec_always --no-startup-id "bash /home/oke/.mod_keys.sh"
 
 exec --no-startup-id bash ~/.clear_red.sh
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'
-exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 240 'i3lock -c111111 -e' ''
-exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 1200 'systemctl suspend' ''  
+exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 240 'i3lock -c003344 -e' ''
+exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 1200 'systemctl suspend' ''
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
