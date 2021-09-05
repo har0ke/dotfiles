@@ -10,7 +10,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
+
+if system('which ctags') =~ "ctags"
 Plug 'vim-scripts/indexer.tar.gz'
+endif
 
 call plug#end()
 
