@@ -1,8 +1,13 @@
 
-default_limit=40
+default_limit=25
 limited_folders="\
     $HOME \
-    $HOME/Downloads|60"
+    $HOME/Pictures \
+    $HOME/Music \
+    $HOME/Documents \
+    $HOME/Desktop|0 \
+    $HOME/Videos \
+    $HOME/Downloads|40"
 
 max_entries=""
 
@@ -23,7 +28,7 @@ for folder in $limited_folders; do
         limit="$(echo "$folder" | cut -d '|' -f2)"
         folder="$(echo "$folder" | cut -d '|' -f1)"
     fi
-    n=$(ls -l "$folder" | wc -l)
+    let n="($(ls -l "$folder" | wc -l) - 1)"
     if [[ "$n" -gt $limit ]]; then
         warnings="$warnings\tMany files ($n > $limit) in '$folder'\n"
     fi
@@ -34,12 +39,16 @@ warnings=""
 
 for d in ~/projects/*; do
     if [[ -e "$d/.git" ]]; then
-        if [ ! -z "git -C "$d" status --porcelain)" ]; then
-            warnings="$warnings\t$d is not clean\n"
+        if [ ! -z "$(git -C "$d" status --porcelain)" ]; then
+            warnings="$warnings\t$d has uncommited changes clean\n"
         else
-            let days="($(date +%s) - $(date +%s -d $(git log HEAD^..HEAD --format=%aI))) / 3600 / 24"
-            if [[ "$days" -gt "31" ]]; then
-                warnings="$warnings\tNo commits in $days days for $d"
+            if [ ! -z "$(git -C "$d" log  --branches --not --remotes)" ]; then
+                warnings="$warnings\t$d has not yet pushed commits\n"
+            else
+                let days="($(date +%s) - $(date +%s -d $(git -C "$d" log -n 1 --format=%aI))) / 3600 / 24"
+                if [[ "$days" -gt "31" ]]; then
+                    warnings="$warnings\t$d hasn't seen a commit in $days days\n"
+                fi
             fi
         fi
     else
