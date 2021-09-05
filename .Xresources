@@ -1,6 +1,26 @@
+
 xterm*saveLines: 10000000
-xterm*background: black
-xterm*foreground: white
 xterm*faceSize: 12
 xterm*faceName: Monospace
 xterm*selectToClipboard: true
+
+xterm*boldColors: false
+xterm*foreground: #444444
+xterm*background: #eeeeee
+xterm*cursorColor: #005f87
+xterm*color0: #eeeeee
+xterm*color1: #af0000
+xterm*color2: #008700
+xterm*color3: #5f8700
+xterm*color4: #0087af
+xterm*color5: #878787
+xterm*color6: #005f87
+xterm*color7: #444444
+xterm*color8: #bcbcbc
+xterm*color9: #d70000
+xterm*color10: #d70087
+xterm*color11: #8700af
+xterm*color12: #d75f00
+xterm*color13: #d75f00
+xterm*color14: #005faf
+xterm*color15: #005f87
