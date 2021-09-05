@@ -134,12 +134,17 @@ set $ws8 "8: chat"
 set $ws9 "9: media"
 set $ws10 "10"
 
+for_window [workspace=$ws2] layout stacked
+for_window [workspace=$ws8] layout stacked
+for_window [workspace=$ws9] layout stacked
+
 # EDITORS
 
 assign [class="code"] $ws2
 assign [class="Code"] $ws2
+
 # WEB
-assign [class="firefox"] $ws3
+for_window [class="firefox"] move container to workspace $ws3
 
 # CHAT
 assign [class="TelegramDesktop"] $ws8
@@ -148,17 +153,23 @@ for_window [class="linphone"] move container to workspace $ws8
 for_window [class="Gajim"] move container to workspace $ws8
 
 # MEDIA
-assign [title="Chromium"] $ws9
-for_window [class="Chromium"] move container to workspace $ws9
-# for_window [title="Spotify – Web Player"] layout stacked
-# for_window [class="Chromium"] layout stacked
+for_window [class="Spotify"] move container to workspace $ws9
 
-exec --no-startup-id telegram-desktop
+# for_window [class="Chromium"] layout stacked
+# for_window [class="Chromium"] move container to workspace $ws9
+
+
+
+exec --no-startup-id code
+
+exec --no-startup-id i3-msg 'workspace $ws3; exec firefox'
+
 exec --no-startup-id thunderbird
+
 exec --no-startup-id spotify
-exec --no-startup-id i3-msg 'workspace $ws2; exec subl'
-exec --no-startup-id i3-msg 'workspace $ws1; exec $terminal'
-exec --no-startup-id chromium http://192.168.0.2:8080/index
+
+exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'
+
 exec --no-startup-id firefox
 
 # switch to workspace
