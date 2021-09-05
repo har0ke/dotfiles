@@ -70,11 +70,7 @@ workstation="\
     etc/acpi/volume.sh:/:root \
     usr/share/X11/xorg.conf.d/40-libinput.conf:/:root"
 
-mode="all"
-
-if [[ $# -gt 0 ]]; then
-   mode="$@"
-fi
+mode="$@"
 
 if [[ "$mode" =~ "all" ]]; then
    mode="workstation terminal"
