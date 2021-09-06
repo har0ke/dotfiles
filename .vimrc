@@ -7,8 +7,7 @@ Plug 'vim-scripts/DfrankUtil'
 Plug 'vim-scripts/vimprj'
 
 Plug 'ctrlpvim/ctrlp.vim'
-
-" Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 Plug 'scrooloose/nerdtree'
 
 if system('which ctags') =~ "ctags"
