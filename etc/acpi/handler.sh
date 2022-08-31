@@ -4,7 +4,7 @@
 for_each_pa_user() {
      pgrep Xorg | \
 	     xargs -i ps -o uid= -p {} | \
-	     xargs -i sudo -u \#{} XDG_RUNTIME_DIR=/run/user/{} $@
+	     xargs -i sudo -u \#{} DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/{} $@
 }
 
 case "$1" in
