@@ -60,6 +60,10 @@ format = "%a %d.%m %R"
 
 [[block]]
 block = "battery"
+interval = 10
+format = "{percentage:3}"
+full_format = "{percentage:3}"
+
 #[[block]]
 #block = "weather"
 #format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
