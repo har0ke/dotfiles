@@ -90,22 +90,12 @@
         "command": "-workbench.action.terminal.toggleTerminal"
     },
     {
-        "key": "alt+[Equal]",
+        "key": "alt+[Minus]",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
     {
-        "key": "shift+[Equal]",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "alt+[Equal]",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "shift+[Equal]",
+        "key": "alt+[Minus]",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "!terminalFocus"
     },
@@ -218,5 +208,30 @@
         "command": "cmake.debugTarget",
         "when": "cmake:enableFullFeatureSet && inCMakeProject && !cmake:hideDebugCommand && !inDebugMode"
     },
-    
+    {
+        "key": "ctrl+shift+g",
+        "command": "-workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "git.stageSelectedRanges",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "ctrl+k ctrl+alt+s",
+        "command": "-git.stageSelectedRanges",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "git.unstageSelectedRanges",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "ctrl+k ctrl+n",
+        "command": "-git.unstageSelectedRanges",
+        "when": "isInDiffEditor"
+    },
+
 ]
