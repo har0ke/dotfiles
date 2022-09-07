@@ -66,4 +66,6 @@
     "window.zoomLevel": 1,
     "C_Cpp.loggingLevel": "Information",
     "editor.tabSize": 8,
+    "terminal.integrated.scrollback": 10000,
+    "files.insertFinalNewline": true,
 }
