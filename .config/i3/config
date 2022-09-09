@@ -169,8 +169,10 @@ exec --no-startup-id code
 
 
 exec --no-startup-id spotify
-exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'
 
+
+# must be last
+exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
