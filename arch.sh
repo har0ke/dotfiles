@@ -8,50 +8,80 @@ cleanup () {
     rm -rf "$SCRIPT_DIR/pikaur"
 }
 
-sudo pacman -Sy --needed \
-    audacity \
-    autoconf \
-    automake \
-    chromium \
-    cmake \
-    dmenu \
-    ethtool \
-    gdb \
-    gimp \
-    git \
-    gparted \
-    i3-gaps \
-    i3status-rust \
-    i3lock \
-    keepassxc \
-    llvm \
-    lshw \
-    make \
-    meld \
-    ninja \
-    perf \
-    playerctl \
-    pv \
-    sshfs \
-    tcpdump \
-    thunderbird \
-    tmux \
-    tree \
-    vim \
-    vlc \
-    wget \
-    wireshark-cli \
-    wireshark-qt \
-    wmctrl \
-    xterm \
-    xorg-server \
-    xorg-xinit \
-    xorg-xrandr \
+declare -ar base_system=(
+    alsa-utils
+    ethtool
+    htop
+    llvm
+    lshw
+    make
+    networkmanager
+    perf
+    pulseaudio
+    pv
+    sshfs
+    tcpdump
+    tmux
+    tree
+    vim
+    wget
     zsh
+)
+
+declare -ar base_dev=(
+    autoconf
+    automake
+    cmake
+    gdb
+    git
+    ninja
+)
+
+declare -ar i3_environment=(
+    acpilight
+    dmenu
+    i3-gaps
+    i3status-rust
+    i3lock
+    playerctl
+    ttf-font-awesome
+    wmctrl
+    xterm
+    xorg-server
+    xorg-xinit
+    xorg-xrandr
+    network-manager-applet
+)
+
+
+declare -ar apps_core=(
+    chromium
+    firefox
+    keepassxc
+    nextcloud-client
+    pavucontrol
+    thunderbird
+    protonmail-bridge-bin
+)
+
+declare -ar apps_dev=(
+    meld
+    tk # git gui
+    visual-studio-code-bin
+)
+
+declare -ar apps_extra=(
+    audacity
+    darktable
+    gimp
+    spotify
+    vlc
+)
 
 
 if ! pacman -Qqe | grep pikaur > /dev/null; then
-    sudo pacman -Sy --needed pyalpm
+    sudo pacman -Sy --needed git pyalm python-markdown-it-py asp \
+        python-defusedxml python-pysocks
     git clone https://aur.archlinux.org/pikaur.git "$SCRIPT_DIR/pikaur" || true
     cd "$SCRIPT_DIR/pikaur"
     git pull
@@ -59,6 +89,10 @@ if ! pacman -Qqe | grep pikaur > /dev/null; then
 fi
 
 
-pikaur -S --needed \
-    spotify \
-    visual-studio-code-bin \
+sudo pikaur -Sy --needed \
+    "${base_system[@]}" \
+    "${base_dev[@]}" \
+    "${i3_environment[@]}" \
+    "${apps_core[@]}" \
+    "${apps_dev[@]}" \
+    "${apps_extra[@]}"
