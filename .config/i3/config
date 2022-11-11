@@ -244,7 +244,7 @@ bar {
 }
 
 
-mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+mode "exit: [l]ogout, [r]eboot, [s]hutdown, [h]ibernate" {
 
   bindsym l exec i3-msg exit
 
@@ -252,12 +252,14 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 
   bindsym s exec shutdown -h 0
 
+  bindsym h exec systemctl suspend, mode "default"
+
   bindsym Escape mode "default"
 
   bindsym Return mode "default"
 
 }
 
-bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown, [h]ibernate"
 
 
