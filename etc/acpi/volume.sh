@@ -7,13 +7,12 @@ fi
 
 echo "$sinks"
 
-
 for SINK in $sinks
 do
-  volume=$(echo $1 | sed "s/%//g")
-  if [[ $volume =~ "+" ]] || [[ $volume =~ "-" ]]; then
-    volume=$(($(pactl get-sink-volume $SINK | grep -o -E "[0-9]+%" | head -1 | sed "s/%//g") $volume))
-    echo $volume
+  volume="${1//\%/}"
+  if [[ $volume =~ \+ ]] || [[ $volume =~ - ]]; then
+    current=$(pactl get-sink-volume "${SINK}" | grep -o -E "[0-9]+%" | head -1 | sed "s/%//g")
+    volume="$((${current} ${volume}))"
     if [[ "${volume}" =~ "-" ]]; then
       volume="0"
     fi
@@ -23,6 +22,5 @@ do
   fi
 
   echo "$volume"
-  pactl set-sink-volume $SINK $volume%
-
+  pactl set-sink-volume "${SINK}" "${volume}%"
 done
