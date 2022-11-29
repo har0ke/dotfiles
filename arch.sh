@@ -15,6 +15,8 @@ declare -ar base_system=(
     llvm
     lshw
     make
+    man-db
+    man-pages
     networkmanager
     perf
     pulseaudio
@@ -46,6 +48,8 @@ declare -ar i3_environment=(
     playerctl
     ttf-font-awesome
     wmctrl
+    xidlehook pkgconf # undocumented dependency
+    xss-lock
     xterm
     xorg-server
     xorg-xinit
