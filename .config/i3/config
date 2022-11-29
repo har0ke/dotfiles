@@ -13,9 +13,9 @@ set $terminal xterm
 set $mod Mod3
 set $screenlock "i3lock -c003344 -e"
 
-exec_always --no-startup-id "bash /home/oke/.mod_keys.sh"
+exec_always --no-startup-id "bash ~/.dotfiles/scripts/mod_keys"
 
-exec --no-startup-id bash ~/.clear_red.sh
+exec --no-startup-id bash ~/.dotfiles/scripts/clear_red
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 240 '$screenlock' ''
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 1200 'systemctl suspend' ''

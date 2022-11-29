@@ -101,4 +101,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-alias winfo=$HOME/.winfo.sh
+PATH="$HOME/.dotfiles/scripts:${PATH}"
