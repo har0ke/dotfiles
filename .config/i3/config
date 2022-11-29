@@ -155,7 +155,6 @@ assign [class="TelegramDesktop"] $ws8
 assign [class="Thunderbird"] $ws8
 for_window [class="linphone"] move container to workspace $ws8
 for_window [class="Gajim"] move container to workspace $ws8
-for_window [class="tutanota-desktop"] move container to workspace $ws8
 # MEDIA
 for_window [class="Spotify"] move container to workspace $ws9
 
@@ -163,7 +162,6 @@ for_window [class="Spotify"] move container to workspace $ws9
 # for_window [class="Chromium"] move container to workspace $ws9
 
 
-exec --no-startup-id i3-msg 'workspace $ws8; exec /opt/tutanota.AppImage'
 exec --no-startup-id i3-msg 'workspace $ws8; exec thunderbird'
 exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id nextcloud
