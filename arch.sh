@@ -42,7 +42,7 @@ declare -ar i3_environment=(
     dmenu
     i3-gaps
     i3status-rust
-    i3lock
+    i3lock-color
     playerctl
     ttf-font-awesome
     wmctrl
