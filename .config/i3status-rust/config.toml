@@ -1,71 +1,64 @@
+# theme = "plain"
+# icons = "awesome6"
+[theme]
 theme = "plain"
+[icons]
 icons = "awesome6"
 
 [[block]]
-block = "networkmanager"
-device_format = "{icon}{name}{ap}"
-ap_format = "({ssid}/{strength})"
-
+block = "net"
+format = " $icon $device $ssid ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
-format= "{icon} {percentage}"
+format= " $icon $percentage "
 info_type = "used"
-unit = "GB"
 interval = 20
 warning = 85.0
 alert = 95.0
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_total_used_percents}"
-on_click = "xterm -e htop"
+format= " $icon $mem_total_used_percents.eng(w:2) "
 
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
-on_click = "xterm -e htop"
 
 [[block]]
 block = "cpu"
 interval = 1
-on_click = "xterm -e htop"
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 2
 warning = 90
 info = 80
 good = 50
-on_click = "xterm -e watch -n 2 sensors"
-inputs = ["Package id 0"]
-format = "{max}"
+inputs = ["Tctl"]
+format = " $icon $max "
 
 [[block]]
 block = "sound"
 driver = "pulseaudio"
-on_click = "pavucontrol -t 3"
 show_volume_when_muted = false
 #name = "alsa_output.usb-Yamaha_Corporation_Steinberg_UR22mkII-00.analog-stereo"
 
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d.%m %R"
+# format = "%a %d.%m %R"
 
 [[block]]
 block = "battery"
+device = "BAT1"
 interval = 10
-format = "{percentage:3}"
-full_format = "{percentage:3}"
+# format = "{percentage:3}"
+# full_format = "{percentage:3}"
 
-#[[block]]
-#block = "weather"
-#format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
-#service = { name = "openweathermap", api_key = "16262e346e27366e2a56e9eaae4f424b", city_id = "2928615", units = "metric" }
+# [[block]]
+# block = "weather"
+# format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+# service = { name = "openweathermap", api_key = "16262e346e27366e2a56e9eaae4f424b", city_id = "2928615", units = "metric" }
 
