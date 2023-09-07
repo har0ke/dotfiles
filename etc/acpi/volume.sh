@@ -16,9 +16,9 @@ do
     if [[ "${volume}" =~ "-" ]]; then
       volume="0"
     fi
-    if [ "${#volume}" -gt "2" ]; then
-      volume="100"
-    fi
+    #if [ "${#volume}" -gt "2" ]; then
+    #  volume="100"
+    #fi
   fi
 
   echo "$volume"
