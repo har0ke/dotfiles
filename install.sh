@@ -105,12 +105,15 @@ function install() {
 
     backup_file "${dst}"
     echo "${dst} will now be linked."
+
+    run_as_user "${user}" mkdir -p "$(dirname "${dst}")"
     run_as_user "${user}" ln -s "${src}" "${dst}"
 }
 
 
 mode="${1-terminal}"
 
+echo $mode
 install -d "${HOME}/.dotfiles" "./"
 
 if [[ $mode =~ "terminal" ]] || [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
@@ -120,7 +123,7 @@ if [[ $mode =~ "terminal" ]] || [[ $mode =~ "workstation" ]] || [[ $mode =~ "all
     install .winfo.sh
 fi
 
-if [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
+if [[ $mode =~ "user" ]] || [[ $mode =~ "all" ]]; then
     install .config/i3/config
     install .config/i3status-rust/config.toml
     install .config/Code/User/settings.json
@@ -128,6 +131,9 @@ if [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
     install .Xmodmap
     install .Xresources
     install .xinitrc
+fi
+
+if [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
     install -r etc/modprobe.d/nobeep.conf
     install -r etc/systemd/logind.conf
     install -r etc/acpi/handler.sh
