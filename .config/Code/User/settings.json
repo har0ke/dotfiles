@@ -53,19 +53,13 @@
         "**/*.o.cmd": true,
         "**/*.o.d": true
     },
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
     "git.confirmSync": false,
     "editor.rulers": [
         80, 120
     ],
     "window.zoomLevel": 1,
     "C_Cpp.loggingLevel": "Information",
-    "editor.tabSize": 8,
+    "editor.tabSize": 4,
     "terminal.integrated.scrollback": 10000,
     "files.insertFinalNewline": true,
 }

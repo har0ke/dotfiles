@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 i3lock \
     -c003344 \
     --time-color=#ffffff88 \

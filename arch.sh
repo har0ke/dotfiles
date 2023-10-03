@@ -46,6 +46,7 @@ declare -ar i3_environment=(
     i3status-rust
     i3lock-color
     playerctl
+    rofi
     ttf-font-awesome
     wmctrl
     xidlehook pkgconf # undocumented dependency

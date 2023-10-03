@@ -1,29 +1,18 @@
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-if exists(':PlugInstall')
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-scripts/DfrankUtil'
 Plug 'vim-scripts/vimprj'
-
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
-Plug 'scrooloose/nerdtree'
-
-if system('which ctags') =~ "ctags"
-Plug 'vim-scripts/indexer.tar.gz'
-endif
 
 call plug#end()
 
 set background=light
 colorscheme PaperColor
-
-endif
 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -47,3 +36,7 @@ highlight Pmenu ctermbg=gray guibg=gray
 :set shiftwidth=4
 :set expandtab
 :set smartindent
+
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_liststyle=3     " tree view
+let g:netrw_chgwin=1

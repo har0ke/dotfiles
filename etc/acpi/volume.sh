@@ -1,4 +1,4 @@
-
+#!/usr/bin/bash
 
 sinks=$(pactl list sinks short | grep RUNNING | awk '{ print $1 }')
 if [ -z "$sinks" ]; then

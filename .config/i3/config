@@ -13,9 +13,9 @@ set $terminal xterm
 set $mod Mod3
 set $screenlock  ~/.dotfiles/scripts/i3lock_oke
 
-exec_always --no-startup-id "bash ~/.dotfiles/scripts/mod_keys"
+exec_always --no-startup-id ~/.dotfiles/scripts/mod_keys
 
-exec --no-startup-id bash ~/.dotfiles/scripts/clear_red
+exec --no-startup-id ~/.dotfiles/scripts/clear_red
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 240 '$screenlock' ''
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --not-when-audio --timer 1200 'systemctl suspend' ''
@@ -70,7 +70,8 @@ bindsym Mod4+l exec $screenlock
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+#bindsym $mod+space exec "rofi -modi windowcd,window -show windowcd"
+bindsym $mod+space exec "rofi -show combi -modes combi,drun,run,ssh -combi-modes 'window,drun,run,ssh' -show-icons"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -117,7 +118,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -142,22 +143,6 @@ for_window [workspace=$ws2] layout stacked
 for_window [workspace=$ws8] layout stacked
 for_window [workspace=$ws9] layout stacked
 
-# EDITORS
-
-assign [class="code"] $ws2
-assign [class="Code"] $ws2
-
-# WEB
-for_window [class="firefox"] move container to workspace $ws3
-
-# CHAT
-assign [class="TelegramDesktop"] $ws8
-assign [class="Thunderbird"] $ws8
-for_window [class="linphone"] move container to workspace $ws8
-for_window [class="Gajim"] move container to workspace $ws8
-# MEDIA
-for_window [class="Spotify"] move container to workspace $ws9
-
 # for_window [class="Chromium"] layout stacked
 # for_window [class="Chromium"] move container to workspace $ws9
 
@@ -165,13 +150,6 @@ for_window [class="Spotify"] move container to workspace $ws9
 exec --no-startup-id i3-msg 'workspace $ws8; exec thunderbird'
 exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id nextcloud
-
-exec --no-startup-id i3-msg 'workspace $ws3; exec firefox'
-exec --no-startup-id code
-
-
-exec --no-startup-id spotify
-
 
 # must be last
 exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'
