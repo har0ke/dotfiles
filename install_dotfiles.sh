@@ -105,6 +105,14 @@ function install() {
         fi
     fi
 
+    if [ -e "${dst}" ]; then
+        if command -v meld &> /dev/null
+        then
+            meld "${src}" "${dst}"
+        else
+            vim -d "${src}" "${dst}"
+        fi
+    fi
     backup_file "${dst}"
     echo "${dst} will now be linked."
 

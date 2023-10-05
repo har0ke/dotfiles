@@ -4,7 +4,7 @@
     "window.customMenuBarAltFocus": false,
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "visible",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "papercolor-vscode-dark",
     "workbench.startupEditor": "none",
     "task.problemMatchers.neverPrompt": {
         "shell": true
