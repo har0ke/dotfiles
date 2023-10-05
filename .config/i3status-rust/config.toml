@@ -7,7 +7,7 @@ icons = "awesome6"
 
 [[block]]
 block = "net"
-format = " $icon $device $ssid ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
+format = " ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) $icon {$signal_strength $device: $ssid /$frequency  |$device: Wired connection} "
 
 [[block]]
 block = "disk_space"
@@ -50,10 +50,10 @@ block = "time"
 interval = 60
 # format = "%a %d.%m %R"
 
-[[block]]
-block = "battery"
-device = "BAT1"
-interval = 10
+# [[block]]
+# block = "battery"
+# device = "BAT1"
+# interval = 10
 # format = "{percentage:3}"
 # full_format = "{percentage:3}"
 
