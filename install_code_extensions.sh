@@ -1,4 +1,7 @@
 #!/usr/bin/bash
+
+set -euo pipefail
+
 code \
    --install-extension rozbo.papercolor-vscode \
    --install-extension dcasella.i3 \

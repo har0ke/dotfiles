@@ -5,6 +5,8 @@ set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd "${SCRIPT_DIR}"
 
+source "${SCRIPT_DIR}/common.sh"
+
 function run_as_user() {
     echo "Run with user $1:" "${@:2}"
     sudo -u "${@}"
@@ -116,24 +118,17 @@ mode="${1-terminal}"
 echo $mode
 install -d "${HOME}/.dotfiles" "./"
 
-if [[ $mode =~ "terminal" ]] || [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
-    install .oh-my-zsh/themes/oke.zsh-theme
-    install .zshrc
-    install .vimrc
-    install .winfo.sh
-fi
+install .oh-my-zsh/themes/oke.zsh-theme
+install .zshrc
+install .vimrc
+install .winfo.sh
 
-if [[ $mode =~ "user" ]] || [[ $mode =~ "all" ]]; then
-    install .config/i3/config
-    install .config/i3status-rust/config.toml
-    install .config/Code/User/settings.json
-    install .config/Code/User/keybindings.json
+if [ "${WORKSTATION}" -eq 1 ]; then
     install .Xmodmap
     install .Xresources
     install .xinitrc
-fi
-
-if [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
+    install .config/i3/config
+    install .config/i3status-rust/config.toml
     install -r etc/modprobe.d/nobeep.conf
     install -r etc/systemd/logind.conf
     install -r etc/acpi/handler.sh
@@ -142,3 +137,7 @@ if [[ $mode =~ "workstation" ]] || [[ $mode =~ "all" ]]; then
     install -r usr/share/X11/xorg.conf.d/40-libinput.conf
 fi
 
+if [ "${DEV}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
+    install .config/Code/User/settings.json
+    install .config/Code/User/keybindings.json
+fi
