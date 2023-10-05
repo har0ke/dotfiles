@@ -47,6 +47,14 @@ declare -ar pkgs_tools_dev=(
     ninja
 )
 
+declare -ar pkgs_tools_dev_extra=(
+    cargo
+    go
+    nodejs
+    npm
+    rust
+)
+
 declare -ar pkgs_i3_environment=(
     acpilight
     dmenu
@@ -123,7 +131,9 @@ fi
 if [ "${DEV}" -eq 1 ]; then
     add_pkg_list pkgs_tools_dev
 fi
-
+if [ "${DEV}" -eq 1 ] && [ "${EXTRA}" -eq 1 ]; then
+    add_pkg_list pkgs_tools_dev_extra
+fi
 if [ "${DEV}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
     add_pkg_list pkgs_apps_dev
 fi
