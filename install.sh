@@ -14,3 +14,6 @@ if [ "${DEV}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
     ./install_code_extensions.sh
 fi
 
+if [ "${WORKSTATION}" -eq 1 ]; then
+   ./install_pam.sh
+fi
