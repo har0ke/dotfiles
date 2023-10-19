@@ -135,6 +135,7 @@ if [ "${WORKSTATION}" -eq 1 ]; then
     install .Xresources
     install .xinitrc
     install .config/i3/config
+    install .config/darktable/darktablerc
     install .config/i3status-rust/config.toml
     install -r etc/modprobe.d/nobeep.conf
     install -r etc/systemd/logind.conf
