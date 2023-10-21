@@ -107,9 +107,9 @@ function install() {
     if [ -e "${dst}" ]; then
         if command -v meld &> /dev/null
         then
-            meld "${src}" "${dst}"
+            run_as_user "${user}" meld "${src}" "${dst}"
         else
-            vim -d "${src}" "${dst}"
+            run_as_user "${user}" vim -d "${src}" "${dst}"
         fi
     fi
     backup_file "${dst}"
@@ -135,7 +135,6 @@ if [ "${WORKSTATION}" -eq 1 ]; then
     install .Xresources
     install .xinitrc
     install .config/i3/config
-    install .config/darktable/darktablerc
     install .config/i3status-rust/config.toml
     install -r etc/modprobe.d/nobeep.conf
     install -r etc/systemd/logind.conf
@@ -143,6 +142,10 @@ if [ "${WORKSTATION}" -eq 1 ]; then
     install -r etc/acpi/toggle_mute.sh
     install -r etc/acpi/volume.sh
     install -r usr/share/X11/xorg.conf.d/40-libinput.conf
+
+    install .config/darktable/darktablerc
+    install -r usr/share/darktable/noiseprofiles.json
+    install -r usr/share/lensfun/version_1/compact-sony.xml
 fi
 
 if [ "${DEV}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
