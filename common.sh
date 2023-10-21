@@ -1,15 +1,16 @@
 #!/usr/bin/bash
 
 ALL=0
-WORKSTATION=0
-EXTRA=0
+CORE=0
 DEV=0
+EXTRA=0
+WORKSTATION=0
 
 if [[ "$#" -eq 0 ]]; then
     ALL=1
 fi
 
-options=$(getopt -o awed -l all,workstation,extra,dev -- "$@")
+options=$(getopt -o acdew -l all,core,dev,extra,workstation -- "$@")
 [ $? -eq 0 ] || {
     echo "Incorrect options provided"
     exit 1
@@ -21,14 +22,17 @@ while true; do
     -a | --all)
         ALL=1
         ;;
-    -w | --workstation)
-        WORKSTATION=1
+    -c | --core)
+        CORE=1
+        ;;
+    -d | --dev)
+        DEV=1
         ;;
     -e | --extra)
         EXTRA=1
         ;;
-    -d | --dev)
-        DEV=1
+    -w | --workstation)
+        WORKSTATION=1
         ;;
     --)
         shift

@@ -120,15 +120,14 @@ function install() {
 }
 
 
-mode="${1-terminal}"
-
-echo $mode
 install -d "${HOME}/.dotfiles" "./"
 
-install .oh-my-zsh/themes/oke.zsh-theme
-install .zshrc
-install .vimrc
-install .winfo.sh
+if [ "${CORE}" -eq 1 ]; then
+    install .oh-my-zsh/themes/oke.zsh-theme
+    install .zshrc
+    install .vimrc
+    install .winfo.sh
+fi
 
 if [ "${WORKSTATION}" -eq 1 ]; then
     install .Xmodmap

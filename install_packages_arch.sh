@@ -120,7 +120,9 @@ function add_pkg_list() {
     packages_to_install+=("${list_packages[@]}")
 }
 
-add_pkg_list pkgs_system_base
+if [ "${CORE}" -eq 1 ]; then
+    add_pkg_list pkgs_system_base
+fi
 
 if [ "${WORKSTATION}" -eq 1 ]; then
     add_pkg_list pkgs_system_workstation
