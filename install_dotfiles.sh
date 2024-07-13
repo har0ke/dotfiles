@@ -85,7 +85,7 @@ function install() {
     fi
 
     dst=$(realpath -ms "${dst}")
-    src=$(realpath -ms "${src}")
+    src=$(realpath -ms "$SCRIPT_DIR/${src}")
 
     if [[ -z "${user}" ]]; then
         user="$(user_of_file "${dst}")"
@@ -120,7 +120,11 @@ function install() {
 }
 
 
-install -d "${HOME}/.dotfiles" "./"
+if [ ! -e "${HOME}/.dotfiles" ]; then
+    ln -s "$(realpath "$SCRIPT_DIR")/" "${HOME}/.dotfiles"
+
+fi
+SCRIPT_DIR="${HOME}/.dotfiles"
 
 if [ "${CORE}" -eq 1 ]; then
     install .oh-my-zsh/themes/oke.zsh-theme
