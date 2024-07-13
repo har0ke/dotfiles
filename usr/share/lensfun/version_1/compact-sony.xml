@@ -1215,20 +1215,13 @@
         <cropfactor>2.73</cropfactor>
         <aspect-ratio>3:2</aspect-ratio>
         <calibration>
-            <distortion model="ptlens" focal="14.3" a="0.016048" b="-0.04251" c="0"/>
-            <distortion model="ptlens" focal="14.8" a="0.013923" b="-0.036204" c="0"/>
-            <distortion model="ptlens" focal="16" a="0.007736" b="-0.019699" c="0"/>
-            <distortion model="ptlens" focal="17.8" a="0.006109" b="-0.012654" c="0"/>
-            <distortion model="ptlens" focal="19.7" a="0.00779" b="-0.01452" c="0"/>
-            <distortion model="ptlens" focal="22.2" a="0.006436" b="-0.009769" c="0"/>
-            <distortion model="ptlens" focal="26.2" a="0" b="0.00356" c="0"/>
-            <distortion model="ptlens" focal="28.7" a="0" b="0.003947" c="0"/>
-            <distortion model="ptlens" focal="32.3" a="0" b="0.003852" c="0"/>
-            <distortion model="ptlens" focal="35.4" a="0" b="0.003556" c="0"/>
-            <distortion model="ptlens" focal="39.5" a="0" b="0.003135" c="0"/>
-            <distortion model="ptlens" focal="49.8" a="0" b="0.002513" c="0"/>
-            <distortion model="ptlens" focal="65.7" a="0" b="0.00051" c="0"/>
-            <distortion model="ptlens" focal="71.5" a="0" b="0" c="0"/>
+            <distortion model="ptlens" focal="8.8" a="0.02266" b="-0.09581" c="0.0019"/>
+            <distortion model="ptlens" focal="10.9" a="0.02376" b="-0.09457" c="0.03217"/>
+            <distortion model="ptlens" focal="13" a="0.02326" b="-0.08674" c="0.04569"/>
+            <distortion model="ptlens" focal="14.7" a="0.0234" b="-0.08395" c="0.0497"/>
+            <distortion model="ptlens" focal="16.6" a="0.02045" b="-0.06253" c="0.02684"/>
+            <distortion model="ptlens" focal="20" a="0.02295" b="-0.06814" c="0.05127"/>
+            <distortion model="ptlens" focal="25.7" a="0.02377" b="-0.06078" c="0.04156"/>
             <tca model="poly3" focal="8.8" br="0.0001786" vr="1.0000881" bb="-0.0001087" vb="1.0003934"/>
             <tca model="poly3" focal="10.9" br="0.0000887" vr="1.0001670" bb="-0.0000723" vb="1.0003152"/>
             <tca model="poly3" focal="13" br="0.0000518" vr="1.0002194" bb="-0.0000203" vb="1.0001770"/>
