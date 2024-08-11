@@ -5,4 +5,4 @@ script_dir="$(dirname -- "${BASH_SOURCE[0]}" )"
 
 "${script_dir}/mount.sh"
 
-sudo arch-chroot /mnt pacman -Suy
+sudo arch-chroot /mnt pacman -S linux
