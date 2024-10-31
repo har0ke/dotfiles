@@ -105,12 +105,7 @@ function install() {
     fi
 
     if [ -e "${dst}" ]; then
-        if command -v meld &> /dev/null
-        then
-            run_as_user "${user}" meld "${src}" "${dst}"
-        else
-            run_as_user "${user}" vim -d "${src}" "${dst}"
-        fi
+        run_as_user "${user}" "${merge_cmd[@]}" "${src}" "${dst}"
     fi
     backup_file "${dst}"
     echo "${dst} will now be linked."

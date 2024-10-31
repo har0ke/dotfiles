@@ -6,6 +6,15 @@ DEV=0
 EXTRA=0
 WORKSTATION=0
 
+
+if [[ -n "$DISPLAY" ]] && command -v meld &> /dev/null;
+then
+    merge_cmd=(meld)
+else
+    merge_cmd=(vim -d)
+fi
+
+
 if [[ "$#" -eq 0 ]]; then
     ALL=1
 fi
@@ -43,6 +52,7 @@ while true; do
 done
 
 if [ "${ALL}" -eq 1 ]; then
+    CORE=1
     WORKSTATION=1
     EXTRA=1
     DEV=1
