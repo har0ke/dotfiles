@@ -16,6 +16,15 @@ else
 fi
 
 
+
+if [[ -n "$DISPLAY" ]] && command -v meld &> /dev/null;
+then
+    merge_cmd=(meld)
+else
+    merge_cmd=(vim -d)
+fi
+
+
 if [[ "$#" -eq 0 ]]; then
     ALL=1
 fi
