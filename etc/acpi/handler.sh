@@ -8,6 +8,12 @@ for_each_pa_user() {
 }
 
 case "$1" in
+    button/brightnessup)
+	for_each_pa_user sudo xbacklight -inc 10
+	;;
+    button/brightnessdown)
+	for_each_pa_user sudo xbacklight -dec 10
+	;;
     button/volumedown)
 	for_each_pa_user /etc/acpi/volume.sh -10%
 	;;

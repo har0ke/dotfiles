@@ -149,6 +149,7 @@ if [ "${WORKSTATION}" -eq 1 ]; then
     install .config/darktable/darktablerc
     install -r usr/share/darktable/noiseprofiles.json
     install -r usr/share/lensfun/version_1/compact-sony.xml
+    install -r etc/udev/rules.d/backlight.rules
 fi
 
 if [ "${DEV}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
