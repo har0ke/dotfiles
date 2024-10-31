@@ -124,6 +124,7 @@ if [ "${CORE}" -eq 1 ]; then
     add_pkg_list pkgs_system_base
 fi
 
+
 if [ "${WORKSTATION}" -eq 1 ]; then
     add_pkg_list pkgs_system_workstation
     add_pkg_list pkgs_i3_environment
@@ -159,6 +160,7 @@ printf "\nInstalled groups:\n"
 printf "\t%s\n" "${pkgl_used[@]}"
 
 if ! pacman -Qqe | grep pikaur > /dev/null; then
+    sudo pacman -Suy make fakeroot which
     git clone https://aur.archlinux.org/pikaur.git "$SCRIPT_DIR/pikaur" || true
     cd "$SCRIPT_DIR/pikaur"
     git pull
@@ -166,3 +168,7 @@ if ! pacman -Qqe | grep pikaur > /dev/null; then
 fi
 
 sudo pikaur -Sy --noedit --needed "${packages_to_install[@]}"
+
+if [ "${CORE}" -eq 1 ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+fi
