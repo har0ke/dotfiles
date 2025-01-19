@@ -5,6 +5,7 @@ CORE=0
 DEV=0
 EXTRA=0
 WORKSTATION=0
+SYSTEM=0
 
 
 if [[ -n "$DISPLAY" ]] && command -v meld &> /dev/null;
@@ -43,6 +44,9 @@ while true; do
     -w | --workstation)
         WORKSTATION=1
         ;;
+    -s | --system)
+        SYSTEM=1
+        ;;
     --)
         shift
         break
@@ -56,4 +60,5 @@ if [ "${ALL}" -eq 1 ]; then
     WORKSTATION=1
     EXTRA=1
     DEV=1
+    SYSTEM=1
 fi
