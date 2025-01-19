@@ -40,18 +40,18 @@ declare -ar pkgs_system_workstation=(
 )
 
 declare -ar pkgs_tools_dev=(
-    llvm
     man-db
     man-pages
-    perf
-    ninja
 )
 
 declare -ar pkgs_tools_dev_extra=(
     cargo
     go
+    llvm
+    ninja
     nodejs
     npm
+    perf
     rust
 )
 
@@ -77,11 +77,8 @@ declare -ar pkgs_i3_environment=(
 declare -ar pkgs_apps_core=(
     chromium
     firefox
-    nextcloud-client
     pavucontrol
-    protonmail-bridge-bin
     thunar gvfs gvfs-mtp thunar-archive-plugin thunar-media-tags-plugin tumbler ffmpegthumbnailer
-    thunderbird
 )
 
 declare -ar pkgs_apps_dev=(
@@ -96,7 +93,10 @@ declare -ar pkgs_apps_extra=(
     gimp
     gnucash
     keepassxc
+    nextcloud-client
+    protonmail-bridge-bin
     spotify
+    thunderbird
     vlc
 )
 
