@@ -10,8 +10,10 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $terminal xterm
-set $mod Mod3
+set $mod Mod1
 set $screenlock  ~/.dotfiles/scripts/i3lock_oke
+
+# fake-outputs 1920x1080+0+0,1366x768+1920+0
 
 exec_always --no-startup-id ~/.dotfiles/scripts/mod_keys
 
