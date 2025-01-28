@@ -133,6 +133,7 @@ if [ "${WORKSTATION}" -eq 1 ]; then
     install .Xresources
     install .xinitrc
     install .config/i3/config
+    install .config/dunst/dunstrc
     install .config/i3status-rust/config.toml
 fi
 

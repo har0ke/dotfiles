@@ -15,8 +15,8 @@ set $screenlock  ~/.dotfiles/scripts/i3lock_oke
 
 fake-outputs 1920x1200+0+0,1920x1200+1920+0,1920x1200+3840+0
 
-exec_always --no-startup-id ~/.dotfiles/scripts/mod_keys
 
+exec --no-startup-id dunst
 exec --no-startup-id ~/.dotfiles/scripts/clear_red
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 240 '$screenlock' ''
@@ -153,7 +153,6 @@ for_window [workspace=$ws9] layout stacked
 #exec --no-startup-id nextcloud
 
 # must be last
-exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
