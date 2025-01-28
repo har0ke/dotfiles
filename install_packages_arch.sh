@@ -167,7 +167,7 @@ if ! pacman -Qqe | grep pikaur > /dev/null; then
     makepkg -irs
 fi
 
-sudo pikaur -Sy --noedit --needed "${packages_to_install[@]}"
+pikaur -Sy --noedit --needed "${packages_to_install[@]}"
 
 if [ "${CORE}" -eq 1 ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true

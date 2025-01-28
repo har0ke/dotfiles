@@ -62,4 +62,7 @@
     "editor.tabSize": 4,
     "terminal.integrated.scrollback": 10000,
     "files.insertFinalNewline": true,
+    "keyboard.dispatch": "keyCode",
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.autoImportCompletions": true
 }

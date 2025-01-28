@@ -39,10 +39,10 @@ good = 50
 inputs = ["Tctl"]
 format = " $icon $max "
 
-[[block]]
-block = "sound"
-driver = "pulseaudio"
-show_volume_when_muted = false
+# [[block]]
+# block = "sound"
+# driver = "pulseaudio"
+# show_volume_when_muted = false
 #name = "alsa_output.usb-Yamaha_Corporation_Steinberg_UR22mkII-00.analog-stereo"
 
 [[block]]

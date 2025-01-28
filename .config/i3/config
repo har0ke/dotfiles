@@ -13,7 +13,7 @@ set $terminal xterm
 set $mod Mod1
 set $screenlock  ~/.dotfiles/scripts/i3lock_oke
 
-# fake-outputs 1920x1080+0+0,1366x768+1920+0
+fake-outputs 1920x1200+0+0,1920x1200+1920+0,1920x1200+3840+0
 
 exec_always --no-startup-id ~/.dotfiles/scripts/mod_keys
 
@@ -35,11 +35,10 @@ default_border pixel 1
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $screenlock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -149,9 +148,9 @@ for_window [workspace=$ws9] layout stacked
 # for_window [class="Chromium"] move container to workspace $ws9
 
 
-exec --no-startup-id i3-msg 'workspace $ws8; exec thunderbird'
-exec --no-startup-id protonmail-bridge --no-window
-exec --no-startup-id nextcloud
+#exec --no-startup-id i3-msg 'workspace $ws8; exec thunderbird'
+#exec --no-startup-id protonmail-bridge --no-window
+#exec --no-startup-id nextcloud
 
 # must be last
 exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'

@@ -90,29 +90,29 @@
         "command": "-workbench.action.terminal.toggleTerminal"
     },
     {
-        "key": "alt+[Minus]",
+        "key": "ctrl+shift+t",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
     {
-        "key": "alt+[Minus]",
+        "key": "ctrl+shift+t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "!terminalFocus"
     },
 
     // navigation between editors / terminals
     {
-        "key": "alt+down",
+        "key": "ctrl+shift+down",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "alt+up",
+        "key": "ctrl+shift+up",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "alt+up",
+        "key": "ctrl+shift+up",
         "command": "workbench.action.focusAboveGroup",
         "when": "!terminalFocus"
     },
@@ -121,7 +121,7 @@
         "command": "-workbench.action.focusAboveGroup"
     },
     {
-        "key": "alt+down",
+        "key": "ctrl+shift+down",
         "command": "workbench.action.focusBelowGroup",
         "when": "!terminalFocus"
     },
@@ -131,7 +131,7 @@
         "when": "!terminalFocus"
     },
     {
-        "key": "alt+left",
+        "key": "ctrl+shift+left",
         "command": "workbench.action.focusLeftGroup",
         "when": "!terminalFocus"
     },
@@ -141,7 +141,7 @@
         "when": "!terminalFocus"
     },
     {
-        "key": "alt+right",
+        "key": "ctrl+shift+right",
         "command": "workbench.action.focusRightGroup",
         "when": "!terminalFocus"
     },

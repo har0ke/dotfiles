@@ -105,5 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+export DONT_PROMPT_WSL_INSTALL=1
+export DE=generic
 DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
 PATH="$HOME/.dotfiles/scripts:${PATH}"
