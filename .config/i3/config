@@ -13,9 +13,10 @@ set $terminal xterm
 set $mod Mod1
 set $screenlock  ~/.dotfiles/scripts/i3lock_oke
 
-fake-outputs 1920x1200+0+0,1920x1200+1920+0,1920x1200+3840+0
+#fake-outputs 1920x1200+0+0,1920x1200+1920+0,1920x1200+3840+0
 
 
+exec --no-startup-id firefox --new-window https://outlook.office365.com/mail/ --new-window https://teams.microsoft.com
 exec --no-startup-id dunst
 exec --no-startup-id ~/.dotfiles/scripts/clear_red
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'
