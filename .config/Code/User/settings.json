@@ -31,20 +31,34 @@
     "C/C++ Include Guard.Macro Type": "Filepath",
     "cSpell.userWords": [
         "avtp",
+        "calib",
+        "calibs",
         "clkd",
         "csrcs",
+        "enclustra",
+        "firmwares",
+        "ftdi",
+        "FTENC",
+        "GALVO",
         "ieciidc",
         "iidc",
         "interruptible",
         "irqsave",
+        "JTAG",
+        "machineapi",
         "mediats",
         "mtap",
+        "Nanocard",
+        "nanocardfirmware",
         "printk",
         "rtcp",
         "ssrc",
         "stap",
+        "tangoapi",
         "tclient",
-        "tscode"
+        "touchgui",
+        "tscode",
+        "userspace"
     ],
     "files.exclude": {
         "**/.history/**": true,
@@ -64,5 +78,6 @@
     "files.insertFinalNewline": true,
     "keyboard.dispatch": "keyCode",
     "python.analysis.typeCheckingMode": "standard",
-    "python.analysis.autoImportCompletions": true
+    "python.analysis.autoImportCompletions": true,
+    "ruff.configuration": "/home/oke/projects/setupdevenvqx/ruff.toml"
 }
