@@ -104,8 +104,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
-
+unset WAYLAND_DISPLAY
+export WAYLAND_DISPLAY
 export DONT_PROMPT_WSL_INSTALL=1
 export DE=generic
 DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
 PATH="$HOME/.dotfiles/scripts:${PATH}"
+alias venv='source ~/projects/setupdevenvqx/venv/bin/activate'
+alias rslv='rslv() { host $1 | awk "{print \$4}" };rslv'
