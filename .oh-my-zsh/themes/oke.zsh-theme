@@ -4,7 +4,7 @@ PROMPT=""
 PROMPT+="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 
 if [[ "$(env | grep SSH_)" != "" || "$(env | grep SUDO_)" != "" ]]; then
-    PROMPT+="%{$FG[007]%}%n@%m:"
+    PROMPT+="%{$FG[008]%}%n@%m:"
 fi
 
 PROMPT+='%{$fg[cyan]%}%c%{$reset_color%}$(git_prompt_info) '
