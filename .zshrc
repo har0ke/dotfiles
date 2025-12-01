@@ -107,11 +107,11 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 unset WAYLAND_DISPLAY
 export WAYLAND_DISPLAY
 export DONT_PROMPT_WSL_INSTALL=1
-# export LIBGL_ALWAYS_INDIRECT=1
+export LIBGL_ALWAYS_INDIRECT=1
 export DE=generic
-DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
+#DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
 PATH="$HOME/.dotfiles/scripts:${PATH}"
-export DISPLAY
+#export DISPLAY
 export PATH
 alias venv='source ~/projects/setupdevenvqx/venv/bin/activate'
 alias rslv='rslv() { host $1 | awk "{print \$4}" };rslv'

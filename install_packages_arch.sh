@@ -37,6 +37,8 @@ declare -ar pkgs_system_workstation=(
     alsa-utils
     networkmanager
     pulseaudio
+    xrdp
+    xrdp-sesman
 )
 
 declare -ar pkgs_tools_dev=(

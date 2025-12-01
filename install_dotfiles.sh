@@ -129,6 +129,7 @@ if [ "${CORE}" -eq 1 ]; then
 fi
 
 if [ "${WORKSTATION}" -eq 1 ]; then
+    install .xsession
     install .Xmodmap
     install .Xresources
     install .xinitrc
@@ -138,19 +139,21 @@ if [ "${WORKSTATION}" -eq 1 ]; then
 fi
 
 if [ "${SYSTEM}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
+    install -r etc/xrdp/gfx.toml
+    install -r etc/wsl.conf
     install -r etc/modprobe.d/nobeep.conf
     install -r etc/systemd/logind.conf
     install -r etc/acpi/handler.sh
     install -r etc/acpi/toggle_mute.sh
     install -r etc/acpi/volume.sh
-    install -r usr/share/X11/xorg.conf.d/40-libinput.confxml
+    install -r usr/share/X11/xorg.conf.d/40-libinput.conf
     install -r etc/udev/rules.d/backlight.rules
 fi
 
 if [ "${EXTRA}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then
     install .config/darktable/darktablerc
     install -r usr/share/darktable/noiseprofiles.json
-    install -r usr/share/lensfun/version_1/compact-sony.
+    install -r usr/share/lensfun/version_1/compact-sony.xml
 fi
 
 if [ "${DEV}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then

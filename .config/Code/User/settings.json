@@ -205,5 +205,7 @@
     "diffEditor.ignoreTrimWhitespace": false
   },
   "diffEditor.renderSideBySide": true,
-  "diffEditor.experimental.showMoves": true
+  "diffEditor.experimental.showMoves": true,
+  "autoDocstring.docstringFormat": "sphinx",
+  "terminal.integrated.suggest.enabled": false,
 }
