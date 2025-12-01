@@ -112,6 +112,7 @@ export DE=generic
 #DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
 PATH="$HOME/.dotfiles/scripts:${PATH}"
 #export DISPLAY
+xhost +SI:localuser:root &> /dev/null
 export PATH
 alias venv='source ~/projects/setupdevenvqx/venv/bin/activate'
 alias rslv='rslv() { host $1 | awk "{print \$4}" };rslv'
