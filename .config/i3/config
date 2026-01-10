@@ -13,7 +13,8 @@ set $terminal xterm
 set $mod Mod3
 set $screenlock  ~/.dotfiles/scripts/i3lock_oke
 
-exec_always --no-startup-id ~/.dotfiles/scripts/mod_keys
+exec --no-startup-id inputplug -d -0 -c ~/.dotfiles/scripts/inputplug_handler
+bindsym Mod1+k exec --no-startup-id ~/.dotfiles/scripts/mod_keys
 
 exec --no-startup-id ~/.dotfiles/scripts/clear_red
 exec --no-startup-id xidlehook --detect-sleep --not-when-fullscreen --timer 60 'xbacklight -get > .last_backlight; xbacklight -set 1' 'xbacklight -set $(cat .last_backlight)'

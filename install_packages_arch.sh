@@ -61,6 +61,7 @@ declare -ar pkgs_i3_environment=(
     i3-gaps
     i3status-rust
     i3lock-color
+    inputplug
     network-manager-applet
     playerctl
     rofi

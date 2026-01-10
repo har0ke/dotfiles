@@ -4,7 +4,6 @@
     "window.customMenuBarAltFocus": false,
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "visible",
-    "workbench.colorTheme": "papercolor-vscode-dark",
     "workbench.startupEditor": "none",
     "task.problemMatchers.neverPrompt": {
         "shell": true
@@ -59,7 +58,11 @@
     ],
     "window.zoomLevel": 1,
     "C_Cpp.loggingLevel": "Information",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "terminal.integrated.scrollback": 10000,
     "files.insertFinalNewline": true,
+    "python.analysis.typeCheckingMode": "strict",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
 }

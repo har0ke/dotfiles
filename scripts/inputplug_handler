@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+event="$1"
+type="$3"
+
+if [[ "$event" == "XIDeviceEnabled" && "$type" == "XISlaveKeyboard" ]]; then
+    ~/.dotfiles/scripts/mod_keys
+fi

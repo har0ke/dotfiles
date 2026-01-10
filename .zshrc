@@ -105,4 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
-PATH="$HOME/.dotfiles/scripts:${PATH}"
+PATH="$HOME/.dotfiles/scripts:$HOME/.local/bin:${PATH}"
+
+# opencode
+export PATH=/home/oke/.opencode/bin:$PATH
