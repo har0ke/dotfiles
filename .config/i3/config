@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $terminal xterm
+set $terminal alacritty
 set $mod Mod3
 set $screenlock  ~/.dotfiles/scripts/i3lock_oke
 
@@ -153,7 +153,7 @@ exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id nextcloud
 
 # must be last
-exec --no-startup-id i3-msg 'workspace $ws1; exec "xterm -e \\"$HOME/.winfo.sh; zsh\\""'
+exec --no-startup-id i3-msg 'workspace $ws1; exec "$terminal -e \\"$HOME/.winfo.sh; zsh\\""'
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
