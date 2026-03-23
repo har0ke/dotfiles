@@ -134,6 +134,14 @@ if [ "${WORKSTATION}" -eq 1 ]; then
     install .xinitrc
     install .config/i3/config
     install .config/i3status-rust/config.toml
+    install .config/alacritty/alacritty.toml
+    install .config/alacritty/toggle-theme.sh
+    install .config/alacritty/themes/light.toml
+    install .config/alacritty/themes/dark.toml
+    # Create default theme symlink (dark) if it doesn't exist
+    if [ ! -e "${HOME}/.config/alacritty/themes/current-theme.toml" ]; then
+        ln -s "${HOME}/.config/alacritty/themes/dark.toml" "${HOME}/.config/alacritty/themes/current-theme.toml"
+    fi
 fi
 
 if [ "${SYSTEM}" -eq 1 ] && [ "${WORKSTATION}" -eq 1 ]; then

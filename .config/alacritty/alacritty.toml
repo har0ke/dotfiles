@@ -1,0 +1,72 @@
+# Alacritty Configuration
+# Ported from ~/.Xresources (xterm)
+
+[general]
+live_config_reload = true
+import = ["~/.config/alacritty/themes/current-theme.toml"]
+
+[window]
+decorations = "None"
+dynamic_padding = true
+
+[window.padding]
+x = 4
+y = 4
+
+[scrolling]
+history = 100000
+
+[terminal]
+osc52 = "CopyPaste"
+
+# Font - Monospace size 12
+[font]
+size = 12.0
+
+[font.normal]
+family = "Monospace"
+style = "Regular"
+
+[font.bold]
+style = "Bold"
+
+[font.italic]
+style = "Italic"
+
+# Cursor
+[cursor.style]
+shape = "Block"
+blinking = "Never"
+
+[cursor]
+vi_mode_style = { shape = "Block", blinking = "Never" }
+
+# Selection
+[selection]
+save_to_clipboard = true
+
+# URL hints - Ctrl+Shift+O to label URLs, click to open
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = false
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`\\\\\\\\]+"
+
+[hints.enabled.binding]
+key = "O"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+
+# Keybindings
+[[keyboard.bindings]]
+key = "Space"
+mods = "Control|Shift"
+action = "ToggleViMode"
+
+# Toggle light/dark theme with F12
+[[keyboard.bindings]]
+key = "F12"
+command = { program = "/bin/sh", args = ["-c", "$HOME/.config/alacritty/toggle-theme.sh"] }
