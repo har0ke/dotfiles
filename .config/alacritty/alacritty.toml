@@ -6,7 +6,7 @@ live_config_reload = true
 import = ["~/.config/alacritty/themes/current-theme.toml"]
 
 [window]
-decorations = "None"
+decorations = "Full"
 dynamic_padding = true
 
 [window.padding]
